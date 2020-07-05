@@ -11,6 +11,8 @@ import matplotlib.pyplot as plot
 import getopt, os, sys
 import time
 
+import FlightFeature
+
 time_factor = 1000.0 # Data in input format is epoch in milliseconds (so * 1000 compored to standard unix epoch)
 
 # Input format of csv file from Flight Recorder 24
@@ -20,18 +22,6 @@ fields_dest = ['time', 'lon', 'lat', 'h msl', 'roll', 'pitch', 'yaw']
 
 # Default format of a complete FDR file
 #fields_dest = ['time', 'temp', 'lon', 'lat', 'h msl', 'h rad', 'ailn', 'elev', 'rudd', 'pitch', 'roll', 'heading', 'speed', 'VVI', 'slip', 'turn', 'mach', 'AOA', 'stall', 'flap request', 'flap actual', 'slat', 'sbrk', 'gear', 'Ngear', 'Lgear', 'Rgear', 'elev trim', 'NAV–1 frq', 'NAV–2 frq', 'NAV–1 type', 'NAV–2 type', 'OBS–1', 'OBS–2', 'DME–1', 'DME–2', 'NAV–1 h-def', 'NAV–2 h-def', 'NAV–1 n/t/f', 'NAV–2 n/t/f', 'NAV–1 v-def', 'NAV–2 v-def', 'OM', 'MM', 'IM', 'f-dir 0/1', 'f-dir pitch', 'f-dir roll', 'ktmac 0/1', 'throt mode', 'hdg mode', 'alt mode', 'hnav mode', 'glslp mode', 'speed selec', 'hdg selec', 'vvi selec', 'alt selec', 'baro', 'DH', 'Mcaut 0/1', 'Mwarn 0/1', 'GPWS 0/1', 'Mmode 0–4', 'Mrang 0–6', 'throt ratio', 'prop cntrl', 'prop rpm', 'prop deg', 'N1 %', 'N2 %', 'MPR', 'EPR', 'torq', 'FF', 'ITT', 'EGT', 'CHT']
-
-# Define som useful classes or structures to group some data and treatments
-class FlightFeature:
-	date = ''
-	time = ''
-	location = ''
-	pilot = ''
-	aircrat = ''
-	registration = ''
-	
-	def __str__(self):
-		return "Aircraft: %s (%s)\nPilot: %s\nLocation: %s\nDate: %s Time: UTC %s" % (self.aircraft, self.registration, self.pilot, self.location, self.date, self.time)
 
 class FixData:
 	airport_elevation = 0.0

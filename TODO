@@ -1,5 +1,4 @@
 1.  rewrite ARg parsing with use of lib
-2.  prendre en charge le format kml en entrée
-3.  faire un test
-4.  découper le code en class, un fichier par ckass
- 
+2.  get KML format on input
+3.  make tests
+4.  split prog into classes, un file per class
